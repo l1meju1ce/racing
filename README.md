@@ -14,7 +14,7 @@ return {
     -- start a reannounce chain, doing <max_tries> reannounces with <interval>
     -- milliseconds of sleep between.
     reannounce = {
-        filter = "tags:\"racing\"",
+        filter = "tag:\"racing\"",
         interval  = 7000,
         max_tries = 42,
         max_age = 600,
