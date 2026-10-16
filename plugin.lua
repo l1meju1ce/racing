@@ -6,8 +6,8 @@ local added_signal = nil
 return {
     init = function(config)
         if config == nil then
-        print("No racing config specified")
-        return false
+            print("No racing config specified")
+            return false
         end
 
         if config.reannounce ~= nil then
@@ -16,7 +16,8 @@ return {
             else
                 print("Setting up racing reannounce event")
 
-                added_signal = events.on("torrent.added", function(torrent)
+                added_signal = events.on("torrent.added", function(event)
+                    local torrent = event.torrent
                     local status = torrent:status()
                     local name   = status.name
                     local filter = PoQuery.parse(config.reannounce.filter)
@@ -26,8 +27,8 @@ return {
                         print(string.format("Torrent %s matched racing filter - reannouncing", name))
 
                         local interval    = config.reannounce.interval or 7000
-                        local max_tries   = config.reannounce.max_tries or 18
-                        local max_age     = config.reannounce.max_age or 3600
+                        local max_tries   = config.reannounce.max_tries or 85
+                        local max_age     = config.reannounce.max_age or 600
                         local add_tags    = config.reannounce.add_tags or {"racing-failed"}
                         local remove_tags = config.reannounce.remove_tags or {}
 

@@ -14,9 +14,9 @@ return {
     -- start a reannounce chain, doing <max_tries> reannounces with <interval>
     -- milliseconds of sleep between.
     reannounce = {
-        filter = "tag:\"racing\"",
+        filter = "$userdata.tags:\"racing\"",
         interval  = 7000,
-        max_tries = 42,
+        max_tries = 85,
         max_age = 600,
         add_tags = {"racing-failed"},
         remove_tags = {"racing"}
@@ -33,7 +33,7 @@ Integer. Time between reannounce attempts in milliseconds. Defaults to 7000.
 
 ### `max_tries`
 Integer. Maximum number of times the plugin will attempt a reannounce.
-Defaults to 42.
+Defaults to 85.
 
 ### `max_age`
 Integer. Maximum time since the torrent was added to attempt to reannounce.
