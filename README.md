@@ -3,7 +3,7 @@
 This plugin contains tools and utils for making it easier to get ahead in early
 swarms for newly announced torrents.
 
-This plugin requires Porla 0.46.0 or newer.
+This plugin requires Porla 0.51.0 or newer.
 
 ## Configuration
 
